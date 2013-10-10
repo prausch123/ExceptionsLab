@@ -34,7 +34,10 @@ public class Employee {
         daysVacation = 0;
     }
 
-    public Employee(String firstName, String lastName, String ssn, Date hireDate, int daysVacation) {
+    public Employee(String firstName, String lastName, String ssn, Date hireDate, int daysVacation) throws IllegalArgumentException {
+        if(firstName.isEmpty() || firstName == null || lastName.isEmpty() || lastName == null || ssn.isEmpty() || ssn == null || hireDate == null || daysVacation <= 0) {
+            throw new IllegalArgumentException("One of the employee fields is null, or equal to nothing.");
+        } 
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
