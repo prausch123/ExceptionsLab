@@ -49,7 +49,10 @@ public class Employee {
         return daysVacation;
     }
 
-    public void setDaysVacation(int daysVacation) {
+    public void setDaysVacation(int daysVacation) throws IllegalArgumentException {
+        if(daysVacation < 0) {
+            throw new IllegalArgumentException("The vacation days you entered was less then 0. ");
+        }
         this.daysVacation = daysVacation;
     }
 
@@ -57,7 +60,10 @@ public class Employee {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName) throws IllegalArgumentException {
+        if(firstName == null || firstName.length() == 0) {
+            throw new IllegalArgumentException("The first name you entered was Null or the length was nothing");
+        }
         this.firstName = firstName;
     }
 
@@ -65,7 +71,10 @@ public class Employee {
         return hireDate;
     }
 
-    public void setHireDate(Date hireDate) {
+    public void setHireDate(Date hireDate) throws IllegalArgumentException {
+        if(hireDate == null) {
+            throw new IllegalArgumentException("The date you sent for setHireDate is null");
+        }
         this.hireDate = hireDate;
     }
 
@@ -73,7 +82,10 @@ public class Employee {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName) throws IllegalArgumentException {
+        if(lastName == null || lastName.length() == 0) {
+            throw new IllegalArgumentException("The last name you entered was either null or had no text");
+        }
         this.lastName = lastName;
     }
 
@@ -81,7 +93,10 @@ public class Employee {
         return ssn;
     }
 
-    public void setSsn(String ssn) {
+    public void setSsn(String ssn) throws IllegalArgumentException {
+        if(ssn == null || ssn.length() == 0) {
+            throw new IllegalArgumentException("The social security number you entered was either null or equal to nothing");
+        }
         this.ssn = ssn;
     }
     
