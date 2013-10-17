@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
  * @version 1.00
  */
 public class Challenge1 {
-    private static final int LAST_NAME_IDX = 1;
 
     public static void main(String[] args) {
         Challenge1 app = new Challenge1();
@@ -27,9 +26,12 @@ public class Challenge1 {
         JOptionPane.showMessageDialog(null, msg);
     }
     
-    public String extractLastName(String fullName) {
+    public String extractLastName(String fullName) throws IllegalArgumentException {
+        if(fullName == null || fullName.length() == 0) {
+            throw new IllegalArgumentException("The full name you entered was null or empty");
+        }
         String[] nameParts = fullName.split(" ");
-        return nameParts[LAST_NAME_IDX];
+        return nameParts[nameParts.length - 1];
     }
 
 }

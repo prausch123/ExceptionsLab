@@ -18,9 +18,12 @@ public class NameService {
      * @param fullName - a name containing a first name and a last name
      * @return the last name
      */
-    public String extractLastName(String fullName) {
+    public String extractLastName(String fullName) throws IllegalArgumentException {
+        if(fullName == null || fullName.length() == 0) {
+            throw new IllegalArgumentException("The full name you entered is not valid");
+        }
         String[] nameParts = fullName.split(" ");
-        return nameParts[LAST_NAME_IDX];
+        return nameParts[nameParts.length - 1];
     }
     
     /**
